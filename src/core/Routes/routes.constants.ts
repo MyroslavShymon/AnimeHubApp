@@ -1,5 +1,5 @@
 export enum RoutesConstants {
-    ANIME = "/anime/id",
+    ANIME = "/animes/:id",
     ANIMES = "/animes",
     LOGIN = "/login"
 }

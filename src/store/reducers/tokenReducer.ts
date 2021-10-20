@@ -1,9 +1,10 @@
-import { TokenActions, TokenActionTypes, TokenState } from "../types/token";
+import {TokenActions, TokenActionTypes, TokenState} from "../types/token";
 
 const initialState: TokenState = {
     token: "",
     loading: false,
     error: null,
+    user: null
 };
 
 export const tokenReducer = (
@@ -12,12 +13,13 @@ export const tokenReducer = (
 ): TokenState => {
     switch (action.type) {
         case TokenActionTypes.FETCH_TOKEN:
-            return { loading: true, error: null, token: "" };
+            return {...state, loading: true, error: null, token: ""};
         case TokenActionTypes.FETCH_TOKEN_SUCCESS:
-            return { loading: false, error: null, token: action.payload };
+            return {...state, loading: false, error: null, token: action.payload};
         case TokenActionTypes.FETCH_TOKEN_ERROR:
-            return { loading: false, error: action.payload, token: "" };
-
+            return {...state, loading: false, error: action.payload, token: ""};
+        case TokenActionTypes.SET_USER:
+            return {...state, user: action.payload};
         default:
             return state;
     }
