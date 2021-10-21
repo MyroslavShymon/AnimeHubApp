@@ -6,8 +6,7 @@ export const addComment = (comment: IComment, token: string) => {
     return async (dispatch: Dispatch<CommentsActions>) => {
         try {
             dispatch({type: CommentActionTypes.FETCH_COMMENT});
-            console.log("token",token)
-            const response = await axios.post<any>(
+            await axios.post<IComment[]>(
                 `https://anime--hub.herokuapp.com/api/v1/comments/`,
                 comment,
                 {
