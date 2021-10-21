@@ -4,9 +4,8 @@ import {useParams} from "react-router-dom";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {useActions} from "../hooks/useAction";
 import img from "../assets/Anime_Girl.png"
-import {Col, Divider, Image, message, Row, Spin, Space, Input, Rate} from "antd";
+import {Col, Divider, Image, message, Row, Spin, Space, Input, Rate, Button} from "antd";
 import Title from "antd/es/typography/Title";
-import Text from "antd/es/typography/Text";
 import {IComment} from "../store/types/comments";
 
 interface OwnProps {
@@ -27,14 +26,29 @@ const AnimePage: FunctionComponent<Props> = (props) => {
     const {error, loading, anime} = useTypedSelector(
         (state) => state.anime
     );
+    const {token} = useTypedSelector((state) => state.token)
     const {comments, commentsLoading, commentsError, saveCommentError} = useTypedSelector((state) => state.comment)
     console.log("comments", comments);
 
     const {fetchAnime, fetchComments, addComment} = useActions();
 
+    const postComment = () => {
+        console.log(token)
+        if (token)
+            addComment(
+                {
+                    ...comment,
+                    animeId: id,
+                    createdAt: Date.now().toString(),
+                },
+                token
+            )
+    }
+
     useEffect(() => {
         fetchAnime(id);
-        fetchComments(id);
+        if (token)
+            fetchComments(id, token);
     }, []);
 
     if (loading) return <Spin size={"large"}/>
@@ -88,13 +102,21 @@ const AnimePage: FunctionComponent<Props> = (props) => {
                         size="large" placeholder="Enter comment"
                     />
                 </Col>
-                <Col span={6}>
+                <Col span={3}>
                     Rating:
                     <Rate
                         allowHalf
                         value={comment.rating}
                         onChange={(event) => setComment((prevState) => ({...prevState, rating: event.valueOf()}))}
                     />
+                </Col>
+                <Col span={3}>
+                    <Button onClick={()=>postComment()}>Send</Button>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    {comments.map((comment) => <Row>{comment.text}</Row>)}
                 </Col>
             </Row>
         </MainTemplate>
