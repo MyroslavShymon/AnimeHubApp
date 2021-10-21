@@ -14,23 +14,30 @@ interface MainTemplateProps {
 
 const MainTemplate: React.FC<MainTemplateProps> = ({children}) => {
     const history = useHistory();
-    const {user} = useTypedSelector(
+    const {user, token} = useTypedSelector(
         (state) => state.token
     );
+
+    const authHandler = () => {
+        if(token)
+            localStorage.removeItem("token")
+        history.push(RoutesConstants.LOGIN)
+    }
+
     return (
         <>
             <Header>
                 <Row>
                     <Col span={18}>
-                        <Title className="logo">AnimeHub</Title>
+                        <Title className="logo" onClick={()=>history.push(RoutesConstants.ANIMES)}>AnimeHub</Title>
                     </Col>
                     <Col span={3}>Username: {user?.username}</Col>
                     <Col span={3}>
-                        <Button type="primary" className={"login-button"} onClick={() => history.push(RoutesConstants.LOGIN)}>Login/Logout</Button>
+                        <Button type="primary" className={"login-button"} onClick={authHandler}>Login/Logout</Button>
                     </Col>
                 </Row>
             </Header>
-            <Content className="main-template">{children}</Content>
+            <Content style={{minHeight: "100vh"}} className="main-template">{children}</Content>
         </>
     );
 }
