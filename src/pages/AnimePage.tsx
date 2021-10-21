@@ -4,9 +4,10 @@ import {useParams} from "react-router-dom";
 import {useTypedSelector} from "../hooks/useTypedSelector";
 import {useActions} from "../hooks/useAction";
 import img from "../assets/Anime_Girl.png"
-import {Col, Divider, Image, message, Row, Spin, Space, Input, Rate, Button} from "antd";
+import {Col, Divider, Image, message, Row, Spin, Space, Input, Rate, Button, Comment} from "antd";
 import Title from "antd/es/typography/Title";
 import {IComment} from "../store/types/comments";
+import TextArea from "antd/es/input/TextArea";
 
 interface OwnProps {
 }
@@ -26,7 +27,7 @@ const AnimePage: FunctionComponent<Props> = (props) => {
     const {error, loading, anime} = useTypedSelector(
         (state) => state.anime
     );
-    const {token} = useTypedSelector((state) => state.token)
+    const {token, user} = useTypedSelector((state) => state.token)
     const {comments, commentsLoading, commentsError, saveCommentError} = useTypedSelector((state) => state.comment)
     console.log("comments", comments);
 
@@ -40,6 +41,7 @@ const AnimePage: FunctionComponent<Props> = (props) => {
                     ...comment,
                     animeId: id,
                     createdAt: Date.now().toString(),
+                    username: user?.username
                 },
                 token
             )
@@ -51,11 +53,11 @@ const AnimePage: FunctionComponent<Props> = (props) => {
             fetchComments(id, token);
     }, []);
 
-    if (loading) return <Spin size={"large"}/>
-    if (error) message.error(`Error: ${error}`)
 
     return (
         <MainTemplate>
+            {loading && <Spin size={"large"}/>}
+            {error && message.error(`Error: ${error}`)}
             <Row style={{width: "100%"}}>
                 <Col span={24}>
                     <Row justify={"center"}>
@@ -89,10 +91,10 @@ const AnimePage: FunctionComponent<Props> = (props) => {
                     <Title level={4}>Rating: 5</Title>
                 </Col>
             </Row>
-            <Row style={{width: "100%", marginTop: 10}} gutter={[24, 24]}>
-                <Col span={6}>1</Col>
+            <Row style={{width: "100%", marginTop: 10}}>
+                <Col span={6}></Col>
                 <Col span={12}>
-                    <Input
+                    <TextArea
                         value={comment.text}
                         onChange={(event) =>
                             setComment((prevState) =>
@@ -101,22 +103,38 @@ const AnimePage: FunctionComponent<Props> = (props) => {
                         }
                         size="large" placeholder="Enter comment"
                     />
-                </Col>
-                <Col span={3}>
-                    Rating:
-                    <Rate
-                        allowHalf
-                        value={comment.rating}
-                        onChange={(event) => setComment((prevState) => ({...prevState, rating: event.valueOf()}))}
-                    />
-                </Col>
-                <Col span={3}>
-                    <Button onClick={()=>postComment()}>Send</Button>
+                    <Row>
+                        <Col span={2}>
+                            <Button onClick={() => postComment()}>Send</Button>
+                        </Col>
+                        <Col span={5}>
+                            Rating: &nbsp;
+                            <Rate
+                                allowHalf
+                                value={comment.rating}
+                                onChange={(event) => setComment((prevState) => ({
+                                    ...prevState,
+                                    rating: event.valueOf()
+                                }))}
+                            />
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
-            <Row>
-                <Col>
-                    {comments.map((comment) => <Row>{comment.text}</Row>)}
+            <Row style={{width: "100%"}} align={"middle"} justify={"center"}>
+                <Col span={12}>
+
+                    {comments.map((comment) => <Row>
+                        <Comment
+                            author={comment.username}
+                            datetime={comment.createdAt}
+                            content={""}>
+                            <div>
+                                <div>{comment.text}</div>
+                                <Rate value={comment.rating} allowHalf disabled/>
+                            </div>
+                        </Comment>
+                    </Row>)}
                 </Col>
             </Row>
         </MainTemplate>
