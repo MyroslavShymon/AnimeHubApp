@@ -11,9 +11,10 @@ const AppRouter: React.FC = () => {
     const {error, loading, user} = useTypedSelector(
         (state) => state.token
     );
-    const {getUser} = useActions();
+    const {getTokens, getUser} = useActions();
 
     useEffect(() => {
+        getTokens()
         getUser()
     }, []);
 

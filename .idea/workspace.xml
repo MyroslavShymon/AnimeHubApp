@@ -6,21 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="8ec73033-a035-4651-9bbc-34b172de5575" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/core/Routes/AppRouter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Routes/AppRouter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Routes/routes.auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Routes/routes.auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/Routes/routes.constants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Routes/routes.constants.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/useTypedSelector.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/useTypedSelector.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AnimePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AnimePage.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AnimesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AnimesPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/tokenReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/tokenReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/types/token/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/types/token/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/MainTemplate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/MainTemplate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/templates.style.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/templates.style.less" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/action-creators/comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action-creators/comment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/action-creators/comments.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action-creators/comments.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +65,7 @@
       <workItem from="1634550020627" duration="13295000" />
       <workItem from="1634668359729" duration="4054000" />
       <workItem from="1634673668464" duration="20966000" />
-      <workItem from="1634746268969" duration="15662000" />
+      <workItem from="1634746268969" duration="17919000" />
     </task>
     <servers />
   </component>

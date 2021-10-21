@@ -9,6 +9,7 @@ import {useEffect} from "react";
 import {IAnime} from "../store/types/animes";
 import {useHistory} from "react-router-dom";
 import {RoutesConstants} from "../core/Routes/routes.constants";
+import axios from "axios";
 
 interface AnimesPageProps {
 
@@ -47,7 +48,6 @@ const AnimesPage: React.FC<AnimesPageProps> = () => {
                         cover={
                             <img
                                 alt={anime.title}
-                                // src={anime?.image === "string" || "jfasdklfjkdl" ? img : (anime?.image || img)}
                                 src={anime?.image || img}
                             />}
                         onClick={() => showAnimePage(anime.id)}
