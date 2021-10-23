@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8ec73033-a035-4651-9bbc-34b172de5575" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/AnimePage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AnimePage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/core/Routes/routes.auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/Routes/routes.auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/AnimePage.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/AnimesPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/AnimesPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/action-creators/comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/action-creators/comment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/MainTemplate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/MainTemplate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/templates.style.less" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/templates.style.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +64,9 @@
       <workItem from="1634668359729" duration="4054000" />
       <workItem from="1634673668464" duration="20966000" />
       <workItem from="1634746268969" duration="26090000" />
-      <workItem from="1634808325786" duration="1482000" />
+      <workItem from="1634808325786" duration="4841000" />
+      <workItem from="1634886864893" duration="4523000" />
+      <workItem from="1634974073197" duration="78000" />
     </task>
     <servers />
   </component>

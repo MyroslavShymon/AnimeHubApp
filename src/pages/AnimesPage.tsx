@@ -11,6 +11,7 @@ import {useHistory} from "react-router-dom";
 import {RoutesConstants} from "../core/Routes/routes.constants";
 import axios from "axios";
 import Title from "antd/es/typography/Title";
+import Recommendation from "./Recommendation";
 
 interface AnimesPageProps {
 
@@ -33,6 +34,7 @@ const AnimesPage: React.FC<AnimesPageProps> = () => {
     }
     return (
         <MainTemplate>
+            <Recommendation />
             <Title style={{marginTop: 20}}>Anime list</Title>
             <Space
                 direction={"horizontal"}
@@ -54,7 +56,7 @@ const AnimesPage: React.FC<AnimesPageProps> = () => {
                                 src={anime?.image || img}
                             />}
                         onClick={() => showAnimePage(anime.id)}
-                    >
+                >
                         <Meta title={anime?.title}  key={anime.id}
                               description={anime?.genres}/>
                     </Card>

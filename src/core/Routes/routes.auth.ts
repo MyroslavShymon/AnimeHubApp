@@ -2,7 +2,8 @@ import {IRoutes} from "./routes.interface";
 import AnimesPage from "../../pages/AnimesPage";
 import {RoutesConstants} from "./routes.constants";
 import LoginPage from "../../pages/LoginPage";
-import AnimePage from "../../pages/AnimePage";
+import AnimePage from "../../pages/AnimePage/index";
+// import AnimePage from "../../pages/AnimePage";
 
 export const routesAuth:IRoutes[] = [
     {
